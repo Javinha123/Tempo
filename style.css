@@ -1,0 +1,269 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-light: #f0f4f8;
+  --text-light: #222;
+  --primary-light: #4a90e2;
+  --bg-dark: #121212;
+  --text-dark: #e1e1e1;
+  --primary-dark: #79b8ff;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-dark: rgba(255, 255, 255, 0.1);
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
+  background-image: url('/gif.gif');
+  color: var(--text-light);
+}
+
+body.dark {
+  background-color: var(--bg-dark);
+  color: var(--text-dark);
+}
+
+.container {
+  background: var(--bg-light);
+  padding: 30px 40px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px var(--shadow-light);
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+body.dark .container {
+  background: #222;
+  box-shadow: 0 8px 20px var(--shadow-dark);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+#toggleTheme {
+  font-size: 1.4rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  transition: transform 0.3s;
+}
+
+#toggleTheme:hover {
+  transform: rotate(20deg);
+}
+
+input[type='text'] {
+  width: 100%;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: 1.8px solid #ddd;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  transition: border-color 0.3s ease;
+  background: #fff;
+  color: #222;
+}
+
+body.dark input[type='text'] {
+  background: #333;
+  border-color: #555;
+  color: #eee;
+}
+
+input[type='text']:focus {
+  outline: none;
+  border-color: var(--primary-light);
+  box-shadow: 0 0 8px var(--primary-light);
+}
+
+body.dark input[type='text']:focus {
+  border-color: var(--primary-dark);
+  box-shadow: 0 0 8px var(--primary-dark);
+}
+
+.botoes {
+  margin-bottom: 20px;
+}
+
+button {
+  cursor: pointer;
+  background: var(--primary-light);
+  color: #fff;
+  font-weight: 600;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  margin: 5px 10px;
+  transition: background-color 0.3s ease;
+  user-select: none;
+}
+
+body.dark button {
+  background: var(--primary-dark);
+}
+
+button:hover {
+  background: #3a78d0;
+}
+
+body.dark button:hover {
+  background: #4f97ff;
+}
+
+.clima-atual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.6rem;
+  margin-bottom: 10px;
+}
+
+.clima-atual img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.mais-info-btn {
+  background: var(--primary-light);
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  margin: 10px 0 15px;
+  padding: 8px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark .mais-info-btn {
+  background: var(--primary-dark);
+  color: #fff;
+}
+
+body.dark .mais-info-btn:hover {
+  background: #4f97ff;
+}
+
+
+.mais-info-btn:hover {
+  background: #3a78d0;
+}
+
+
+.info-extra {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.3s ease;
+  background: rgba(74, 144, 226, 0.1);
+  border-radius: 10px;
+  padding: 0 20px;
+  color: #222;
+  font-size: 1rem;
+}
+
+body.dark .info-extra {
+  background: rgba(121, 184, 255, 0.15);
+  color: #eee;
+}
+
+.info-extra.open {
+  max-height: 500px; /* suficiente para conteúdo */
+  padding: 15px 20px;
+}
+
+.info-extra p {
+  margin: 8px 0;
+  font-weight: 500;
+}
+
+.mensagem-erro {
+  margin-top: 15px;
+  color: #cc3333;
+  font-weight: 600;
+}
+
+.previsao-horas {
+  margin-top: 15px;
+  text-align: left;
+}
+
+.previsao-horas h3 {
+  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.horas-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding-bottom: 10px;
+}
+
+.hora-item {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 8px;
+  min-width: 60px;
+  text-align: center;
+  flex-shrink: 0;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  color: #222;
+  font-size: 0.9rem;
+}
+
+body.dark .hora-item {
+  background: rgba(30, 30, 30, 0.8);
+  color: #ddd;
+}
+
+.hora-item img {
+  width: 40px;
+  height: 40px;
+  margin: 5px 0;
+}
+
+
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  button {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+
+  .clima-atual img {
+    width: 80px;
+    height: 80px;
+  }
+}

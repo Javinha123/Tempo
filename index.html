@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>App Clima - Dark/Light</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>ClimaTempo</h1>
+      <button id="toggleTheme" aria-label="Trocar tema">🌙</button>
+    </header>
+
+    <section class="busca">
+      <input type="text" id="cidadeInput" placeholder="Digite o nome da cidade" autocomplete="off" />
+      <div class="botoes">
+        <button id="btnBuscar">Buscar por Cidade</button>
+        <button id="btnLocalizacao">Buscar por Localização</button>
+      </div>
+    </section>
+
+    <main>
+      <section id="climaAtual" class="clima-atual"></section>
+
+      <button id="btnMaisInfo" class="mais-info-btn" style="display:none;">
+        Mais informações ▼
+      </button>
+
+      <section id="infoExtra" class="info-extra" hidden></section>
+
+      <div id="resultado" class="mensagem-erro" role="alert"></div>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
